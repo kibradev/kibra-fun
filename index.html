@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <button id="yukle" class="modlu">MODLU ARAÇLAR</button>
+
+        <button id="normal" class="modlu">TÜM ARAÇLAR</button>
+        <button id="silahlarx" class="modlu">SİLAHLAR</button>
+        <button id="pedler" class="modlu">PEDLER</button>
+
+        <div id="portal">
+            <center><input type="text" id="searchBox" placeholder="Araç ara..." oninput="filterCars()"></center>
+            <div id="carList">
+            </div>
+        </div>
+        <div id="modluarabalar">
+            <div id="modlulist">
+
+            </div>
+        </div>
+        <div id="silahlar">
+            <div id="silahlarbaba">
+
+            </div>
+        </div>
+        <div id="pedler2">
+            <div id="pedlerx">
+
+            </div>
+        </div>
+    </div>
+    <style>
+
+        body {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .silahresim2 {
+            width: 35px;
+        }
+
+.arabaxv2 {
+    background-color: #1d1f26;
+    width: 19.6vh;
+    height: 17vh;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    position: relative;
+    top: 1vh;
+    transition: .4s;
+    margin-left: 1vh;
+    left: 1vh;
+    margin-top: 1vh;
+        }
+
+        .silahName {
+            text-align: center;
+    color: #b1b1b1;
+    font-size: 1.5vh;
+    position: relative;
+    font-weight: 500;
+    top: 3vh;
+    font-family: system-ui;
+        }
+
+        .arabaxv2:hover {
+            background-color: #a4a4a4;
+            transition: .4s;
+            transform:scale(1.1);
+        }
+
+        .arabaxv2 img {
+            position: relative;
+            top: 2vh;
+        }
+
+        .arabax {
+               background-color: #1d1f26;
+    width: 25.2vh;
+    height: 8vh;
+    cursor: pointer;
+    float: left;
+    text-align: center;
+    transition: .4s;
+    position: relative;
+    top: 1vh;
+    left: 1.6vh;
+    margin-left: 0.4vh;
+    margin-top: 0.5vh;
+        }
+
+        .arabax:hover {
+            background-color: #a4a4a4;
+            transition: .4s;
+            transform:scale(1.1);
+        }
+
+        .hirsizz {
+            color: #cdc8c8;
+    font-family: system-ui;
+    text-transform: uppercase;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 2vh;
+        }
+
+        .modlu {
+            background-color: #27292e;
+    border: 1px;
+    width: 25.2vh;
+    height: 5vh;
+    cursor: pointer;
+    position: relative;
+    font-family: system-ui;
+    left: 2vh;
+    font-weight: 600;
+    top: 1vh;
+    margin-left: 0.vh;
+    transition: .4s;
+    margin-top: 1vh;
+    color: #c7c7c7;
+        }
+
+        /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #131519;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+        .modlu:hover {
+            background-color: #a4a4a4;
+            color: #000;
+            transition: .4s;
+        }
+
+        .sira {
+            width: 24.5vh;
+    margin: auto;
+    position: relative;
+    left: 1vh;
+    height: 20vh;
+    margin-top: 1vh;
+    margin-left: 1vh;
+    background: #1d1f26;
+    display: inline-block;
+        }
+
+        .ayarlamalax {
+            color: #959595;
+    font-family: system-ui;
+    font-weight: 400;
+    font-size: 2vh;
+    text-align: center;
+        }
+
+        input.middle:focus {
+    outline: 0;
+    
+}
+
+input:focus {
+    outline: 0;
+    
+}
+
+        input {
+            background-color: #1d1f26;
+    width: 99vh;
+    height: 4.5vh;
+    padding-left: 2vh;
+    margin-top: 2vh;
+    font-family: system-ui;
+    color: #e7e7e7;
+    border: 1px;
+    font-size: 1.5vh;
+        }
+
+        #carList img {
+            width: 19vh;
+    height: 9vh;
+    margin-top: 3vh;
+    margin-left: 2vh;
+        }
+
+        #carList img:hover {
+            transition: .4s;
+            transform:scale(1.1)
+        }
+
+        .container {
+            display: none;
+    margin: auto;
+    width: 60vw;
+    border-radius: .5vh;
+    height: 64vh;
+    overflow: auto;
+    background: #17161c;
+    position: relative;
+    top: 17vh;
+        }
+
+        .carList {
+            overflow: auto;
+        }
+
+        .img {
+            width: auto;
+            height: 100px;
+            padding: 11px;
+            top: 0;
+            margin-left: 10vh;
+            cursor: pointer;
+            right: 0;
+            transition: .4s;
+        }
+
+        .img:hover {
+            transform:scale(1.1);
+            transition: .4s;
+        }
+
+       
+
+    </style>
+     <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+     <script src="main.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</body>
+</html>
