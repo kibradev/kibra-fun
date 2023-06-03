@@ -9,10 +9,10 @@ version "1.0.0"
 description "for standalone server"
 
 client_scripts {
-     "carlist.lua",
+     "weapons.lua",
+     "cars.lua",
+     "addons.lua",
      "client.lua",
-     "ped.lua",
-     "ayar.lua"
 }
 
 ui_page "index.html"
